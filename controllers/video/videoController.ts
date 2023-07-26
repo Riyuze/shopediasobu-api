@@ -1,6 +1,7 @@
 export {};
 import { Response, Request } from "express";
-import videoUsecase from "../usecases/video/videoUsecase";
+import videoUsecase from "../../usecases/videoUsecase";
+import { videoThumbnailResponse, videoUrlResponse } from "./videoModel";
 
 const getVideos = async (req: Request, res: Response) => {
     try {
@@ -13,7 +14,13 @@ const getVideos = async (req: Request, res: Response) => {
             });
         }
 
-        return res.status(200).json({ status: 200, data: videos });
+        const videoResponse: videoThumbnailResponse[] = videos.map((video) => {
+            return {
+                thumbnail: video.thumbnail,
+            };
+        });
+
+        return res.status(200).json({ status: 200, data: videoResponse });
     } catch (error) {
         console.log((error as Error).message);
         return res
@@ -26,7 +33,7 @@ const getVideoById = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
 
-        if (id === "null") {
+        if (id === null) {
             return res
                 .status(400)
                 .json({ status: 400, error: "Param cannot be empty." });
@@ -40,7 +47,12 @@ const getVideoById = async (req: Request, res: Response) => {
                 error: "Video not found.",
             });
         }
-        return res.status(200).json({ status: 200, data: video });
+
+        const videoResponse: videoUrlResponse = {
+            url: video.url,
+        };    
+
+        return res.status(200).json({ status: 200, data: videoResponse });
     } catch (error) {
         console.log((error as Error).message);
         return res
