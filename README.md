@@ -280,7 +280,7 @@ Creates a new Comment with reference to Video and returns the new object.
 ## How to Run
 1. Fork the code.
 2. In the root directory do ```npm install``` or ```yarn install```.
-3. Create a .env file and insert the values:\
+3. Create a .env file and insert the values:
    ```
    PORT=8080 || <your_preferred_port>
    MONGO_USERNAME="<your_mongodb_username>"
