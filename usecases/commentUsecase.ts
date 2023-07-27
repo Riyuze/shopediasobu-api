@@ -1,5 +1,4 @@
 export {};
-import { commentResponse } from "../controllers/comment/commentModel";
 import commentRepository from "../repositories/commentRepository";
 
 const getCommentsByRefId = async (id: string) => {
