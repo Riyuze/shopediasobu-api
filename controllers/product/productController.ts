@@ -24,6 +24,7 @@ const getProductsByRefId = async (req: Request, res: Response) => {
 
         const productsResponse: ProductResponse[] = products.map((product) => {
             return {
+                _id: product._id,
                 title: product.title,
                 price: product.price,
                 url: product.url,

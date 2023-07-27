@@ -24,6 +24,7 @@ const getCommentsByRefId = async (req: Request, res: Response) => {
 
         const commentsResponse: CommentResponse[] = comments.map((comment) => {
             return {
+                _id: comment._id,
                 username: comment.username,
                 comment: comment.comment,
                 createdAt: comment.createdAt,
