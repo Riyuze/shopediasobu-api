@@ -9,12 +9,12 @@ const seedDB = async () => {
         const thumbnail = faker.image.url()
         const url = faker.internet.url()
 
-        VideoModel.create({ thumbnail, url })
+        await VideoModel.create({ thumbnail, url })
     }
 
     const videos = await VideoModel.find();
 
-    videos.forEach((video) => {
+    videos.forEach(async (video) => {
         for (let i = 0; i < 5; i++) {
             const title = faker.commerce.productName()
             const price = faker.commerce.price()
@@ -25,8 +25,8 @@ const seedDB = async () => {
 
             const videoId = video._id
     
-            ProductModel.create({ title, price, url, videoId })
-            CommentModel.create({ username, comment, videoId })
+            await ProductModel.create({ title, price, url, videoId })
+            await CommentModel.create({ username, comment, videoId })
         }
     })
 

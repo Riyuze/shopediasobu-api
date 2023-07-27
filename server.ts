@@ -12,7 +12,7 @@ import seedDB from "./utils/seeder";
 // Connect to database
 mongoose
     .connect(
-        `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.dssapsi.mongodb.net/asobu-db?retryWrites=true&w=majority`,
+        `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.dssapsi.mongodb.net/shopediasobu-db?retryWrites=true&w=majority`,
         {
             useNewUrlParser: true,
             useUnifiedTopology: true,

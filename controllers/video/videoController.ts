@@ -20,6 +20,7 @@ const getVideos = async (req: Request, res: Response) => {
 
         const videoResponse: VideoThumbnailResponse[] = videos.map((video) => {
             return {
+                _id: video._id,
                 thumbnail: video.thumbnail,
             };
         });
@@ -53,6 +54,7 @@ const getVideoById = async (req: Request, res: Response) => {
         }
 
         const videoResponse: VideoUrlResponse = {
+            _id: video._id,
             url: video.url,
         };
 
