@@ -57,7 +57,7 @@ const addProduct = async (req: Request, res: Response) => {
         }
 
         const newProductRequest: ProductRequest = {
-            userId: id,
+            videoId: id,
             title,
             price,
             url,

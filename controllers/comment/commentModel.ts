@@ -4,7 +4,7 @@ export interface CommentRequest {
     _id?: Types.ObjectId;
     username: String;
     comment: String;
-    userId: String;
+    videoId: String;
 }
 
 export interface CommentResponse {

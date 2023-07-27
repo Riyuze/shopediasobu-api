@@ -23,10 +23,10 @@ const seedDB = async () => {
             const username = faker.internet.userName()
             const comment = faker.word.words(8)
 
-            const userId = video._id
+            const videoId = video._id
     
-            ProductModel.create({ title, price, url, userId })
-            CommentModel.create({ username, comment, userId })
+            ProductModel.create({ title, price, url, videoId })
+            CommentModel.create({ username, comment, videoId })
         }
     })
 

@@ -57,7 +57,7 @@ const addComment = async (req: Request, res: Response) => {
         }
 
         const newCommentRequest: CommentRequest = {
-            userId: id,
+            videoId: id,
             username,
             comment,
         };
