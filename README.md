@@ -2,7 +2,7 @@
 API for a live streaming & live shopping platform. Inspired by Tokopedia Play. Built using expressJS, mongoDB, and nodeJS.
 
 ## Database Diagram
-![ERD](https://github.com/Riyuze/shopediasobu-api/blob/main/ERD%20Diagram.png)
+![ERD](https://github.com/Riyuze/shopediasobu-api/blob/main/misc/ERD%20Diagram.png)
 
 A NoSQL database is used with the name **shopediasobu-db** and consists of 3 collections namely **videos**, **products**, and **comments**.
 
