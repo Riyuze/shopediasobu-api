@@ -1,4 +1,5 @@
 export {};
+import { VideoRequest } from "../controllers/video/videoModel";
 import videoRepository from "../repositories/videoRepository";
 
 const getVideos = async () => {
@@ -13,7 +14,14 @@ const getVideoById = async (id: string) => {
     return video;
 };
 
+const addVideo = async (newVideoData: VideoRequest) => {
+    const newVideo = await videoRepository.addVideo(newVideoData);
+
+    return newVideo;
+};
+
 export default {
     getVideos,
     getVideoById,
+    addVideo,
 };

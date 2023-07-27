@@ -1,7 +1,11 @@
 export {};
 import { Response, Request } from "express";
 import videoUsecase from "../../usecases/videoUsecase";
-import { videoThumbnailResponse, videoUrlResponse } from "./videoModel";
+import {
+    VideoThumbnailResponse,
+    VideoUrlResponse,
+    VideoRequest,
+} from "./videoModel";
 
 const getVideos = async (req: Request, res: Response) => {
     try {
@@ -14,7 +18,7 @@ const getVideos = async (req: Request, res: Response) => {
             });
         }
 
-        const videoResponse: videoThumbnailResponse[] = videos.map((video) => {
+        const videoResponse: VideoThumbnailResponse[] = videos.map((video) => {
             return {
                 thumbnail: video.thumbnail,
             };
@@ -48,9 +52,35 @@ const getVideoById = async (req: Request, res: Response) => {
             });
         }
 
-        const videoResponse: videoUrlResponse = {
+        const videoResponse: VideoUrlResponse = {
             url: video.url,
-        };    
+        };
+
+        return res.status(200).json({ status: 200, data: videoResponse });
+    } catch (error) {
+        console.log((error as Error).message);
+        return res
+            .status(400)
+            .json({ status: 400, error: (error as Error).message });
+    }
+};
+
+const addVideo = async (req: Request, res: Response) => {
+    try {
+        const { thumbnail, url } = req.body;
+
+        if (thumbnail === null || url === null) {
+            return res
+                .status(400)
+                .json({ status: 400, error: "Invalid JSON body." });
+        }
+
+        const newVideoRequest: VideoRequest = {
+            thumbnail,
+            url,
+        };
+
+        const videoResponse = await videoUsecase.addVideo(newVideoRequest);
 
         return res.status(200).json({ status: 200, data: videoResponse });
     } catch (error) {
@@ -64,4 +94,5 @@ const getVideoById = async (req: Request, res: Response) => {
 export default {
     getVideos,
     getVideoById,
+    addVideo,
 };

@@ -1,7 +1,7 @@
 export {};
 import { Response, Request } from "express";
 import commentUsecase from "../../usecases/commentUsecase";
-import { commentResponse } from "./commentModel";
+import { CommentRequest, CommentResponse } from "./commentModel";
 
 const getCommentsByRefId = async (req: Request, res: Response) => {
     try {
@@ -22,7 +22,7 @@ const getCommentsByRefId = async (req: Request, res: Response) => {
             });
         }
 
-        const commentsResponse: commentResponse[] = comments.map((comment) => {
+        const commentsResponse: CommentResponse[] = comments.map((comment) => {
             return {
                 username: comment.username,
                 comment: comment.comment,
@@ -39,7 +39,7 @@ const getCommentsByRefId = async (req: Request, res: Response) => {
     }
 };
 
-const createComment = async (req: Request, res: Response) => {
+const addComment = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const { username, comment } = req.body;
@@ -56,10 +56,14 @@ const createComment = async (req: Request, res: Response) => {
                 .json({ status: 400, error: "Invalid JSON body." });
         }
 
-        const commentResponse = await commentUsecase.createComment(
-            id,
+        const newCommentRequest: CommentRequest = {
+            userId: id,
             username,
-            comment
+            comment,
+        };
+
+        const commentResponse = await commentUsecase.addComment(
+            newCommentRequest
         );
 
         return res.status(200).json({ status: 200, data: commentResponse });
@@ -73,5 +77,5 @@ const createComment = async (req: Request, res: Response) => {
 
 export default {
     getCommentsByRefId,
-    createComment,
+    addComment,
 };

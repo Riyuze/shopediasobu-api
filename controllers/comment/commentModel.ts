@@ -1,13 +1,13 @@
 import { Types } from "mongoose";
 
-export interface commentRequest {
+export interface CommentRequest {
     _id?: Types.ObjectId;
     username: String;
     comment: String;
     userId: String;
 }
 
-export interface commentResponse {
+export interface CommentResponse {
     _id?: Types.ObjectId;
     username: String;
     comment: String;

@@ -1,25 +1,20 @@
 export {};
+import { CommentRequest } from "../controllers/comment/commentModel";
 import commentRepository from "../repositories/commentRepository";
 
 const getCommentsByRefId = async (id: string) => {
     const comments = await commentRepository.getCommentsByRefId(id);
 
-    return comments
+    return comments;
 };
 
-const createComment = async (id: string, username: string, comment: string) => {
-    const newCommentData = {
-        userId: id,
-        username,
-        comment,
-    };
-
-    const newComment = await commentRepository.createComment(newCommentData);
+const addComment = async (newCommentData: CommentRequest) => {
+    const newComment = await commentRepository.addComment(newCommentData);
 
     return newComment;
 };
 
 export default {
     getCommentsByRefId,
-    createComment,
+    addComment,
 };
