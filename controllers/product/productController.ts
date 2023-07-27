@@ -16,8 +16,8 @@ const getProductsByRefId = async (req: Request, res: Response) => {
         const products = await productUsecase.getProductsByRefId(id);
 
         if (products === null) {
-            return res.status(400).json({
-                status: 400,
+            return res.status(404).json({
+                status: 404,
                 error: "Products not found.",
             });
         }
