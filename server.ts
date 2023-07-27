@@ -7,6 +7,7 @@ const app = express();
 const port = process.env.PORT;
 
 import router from "./routers/router";
+import seedDB from "./utils/seeder";
 
 // Connect to database
 mongoose
@@ -19,6 +20,7 @@ mongoose
     )
     .then(() => {
         console.log("Connected to MongoDB!");
+        seedDB();
     })
     .catch((err: Error) => {
         console.log(`An Error Occured! ${err}`);
