@@ -5,6 +5,10 @@ import ProductModel from "../models/Product";
 import CommentModel from "../models/Comment";
 
 const seedDB = async () => {
+    VideoModel.collection.drop();
+    ProductModel.collection.drop();
+    CommentModel.collection.drop();
+
     for (let i = 0; i < 5; i++) {
         const thumbnail = faker.image.url()
         const url = faker.internet.url()
