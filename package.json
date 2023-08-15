@@ -5,7 +5,8 @@
   "main": "server.ts",
   "scripts": {
     "start": "node server.ts",
-    "dev": "nodemon server.ts"
+    "dev": "nodemon server.ts",
+    "build": "rimraf build && tsc"
   },
   "author": "Kevin Tandavo",
   "license": "ISC",
