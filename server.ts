@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 require("dotenv").config();
 const app = express();
 const port = process.env.PORT;
+import { Response, Request } from "express";
 
 import router from "./routers/router";
 import seedDB from "./utils/seeder";
@@ -35,6 +36,10 @@ app.use(bodyParser.json());
 
 // Parse URL-Encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/", (req: Request, res: Response) => {
+    res.send("Hey This API Is Running!");
+});
 
 app.use("/api", router);
 
