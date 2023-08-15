@@ -1,4 +1,7 @@
 # Shopediasobu-api
+https://shopediasobu-api.vercel.app/ <- Deployment Link\
+https://shopediasobu-api.vercel.app/api/ <- Endpoint
+
 API for a live streaming & live shopping platform. Inspired by Tokopedia Play. Built using Typescript, Express, MongoDB, and NodeJS.
 
 ## Database Diagram
