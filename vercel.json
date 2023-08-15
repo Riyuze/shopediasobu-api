@@ -1,17 +1,16 @@
 {
     "version": 2,
+    "name": "shopediasobu-api",
     "builds": [
         {
             "src": "./build/server.js",
-            "use": "@vercel/node",
-            "config": { "includeFiles": ["build/**"] },
-            "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+            "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "./build/server.js"
+            "dest": "/"
         }
     ]
 }
