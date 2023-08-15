@@ -1,5 +1,5 @@
 # Shopediasobu-api
-API for a live streaming & live shopping platform. Inspired by Tokopedia Play. Built using typescript, express, mongoDB, and nodeJS.
+API for a live streaming & live shopping platform. Inspired by Tokopedia Play. Built using Typescript, Express, MongoDB, and NodeJS.
 
 ## Database Diagram
 ![ERD](https://github.com/Riyuze/shopediasobu-api/blob/main/misc/ERD%20Diagram.png)
