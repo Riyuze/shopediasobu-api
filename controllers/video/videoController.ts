@@ -22,6 +22,8 @@ const getVideos = async (req: Request, res: Response) => {
             return {
                 _id: video._id,
                 thumbnail: video.thumbnail,
+                title: video.title,
+                channel: video.channel,
             };
         });
 
@@ -56,6 +58,8 @@ const getVideoById = async (req: Request, res: Response) => {
         const videoResponse: VideoUrlResponse = {
             _id: video._id,
             url: video.url,
+            title: video.title,
+            channel: video.channel,
         };
 
         return res.status(200).json({ status: 200, data: videoResponse });

@@ -10,6 +10,14 @@ const VideoSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    title: {
+        type: String,
+        required: true,
+    },
+    channel: {
+        type: String,
+        required: true,
+    },
 });
 
 const VideoModel = mongoose.model("Video", VideoSchema);

@@ -1,4 +1,5 @@
 export {};
+const cors = require("cors");
 import express from "express";
 import mongoose, { ConnectOptions } from "mongoose";
 import bodyParser from "body-parser";
@@ -25,6 +26,9 @@ mongoose
     .catch((err: Error) => {
         console.log(`An Error Occured! ${err}`);
     });
+
+// Enable CORS
+app.use(cors());
 
 // Parse JSON bodies
 app.use(bodyParser.json());

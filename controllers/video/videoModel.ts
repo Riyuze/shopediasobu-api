@@ -9,9 +9,13 @@ export interface VideoRequest {
 export interface VideoThumbnailResponse {
     _id?: Types.ObjectId;
     thumbnail: String;
+    title: string;
+    channel: string;
 }
 
 export interface VideoUrlResponse {
     _id?: Types.ObjectId;
     url: String;
+    title: string;
+    channel: string;
 }

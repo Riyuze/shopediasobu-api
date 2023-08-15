@@ -28,6 +28,7 @@ const getProductsByRefId = async (req: Request, res: Response) => {
                 title: product.title,
                 price: product.price,
                 url: product.url,
+                image: product.image,
             };
         });
 
@@ -43,7 +44,7 @@ const getProductsByRefId = async (req: Request, res: Response) => {
 const addProduct = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
-        const { title, price, url } = req.body;
+        const { title, price, url, image } = req.body;
 
         if (id === null) {
             return res
@@ -62,6 +63,7 @@ const addProduct = async (req: Request, res: Response) => {
             title,
             price,
             url,
+            image,
         };
 
         const productResponse = await productUsecase.addProduct(

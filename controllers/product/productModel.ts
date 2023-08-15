@@ -5,6 +5,7 @@ export interface ProductRequest {
     title: String;
     price: Number;
     url: String;
+    image: String;
     videoId: String;
 }
 
@@ -13,4 +14,5 @@ export interface ProductResponse {
     title: String;
     price: Number;
     url: String;
+    image: String;
 }
