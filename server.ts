@@ -22,7 +22,7 @@ mongoose
     )
     .then(() => {
         console.log("Connected to MongoDB!");
-        seedDB();
+        // seedDB();
     })
     .catch((err: Error) => {
         console.log(`An Error Occured! ${err}`);
