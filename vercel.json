@@ -4,7 +4,8 @@
         {
             "src": "./build/server.js",
             "use": "@vercel/node",
-            "config": { "includeFiles": ["build/**"] }
+            "config": { "includeFiles": ["build/**"] },
+            "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
         }
     ],
     "routes": [
