@@ -11,7 +11,6 @@ require("dotenv").config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 const router_1 = __importDefault(require("./routers/router"));
-const seeder_1 = __importDefault(require("./utils/seeder"));
 // Connect to database
 mongoose_1.default
     .connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.dssapsi.mongodb.net/shopediasobu-db?retryWrites=true&w=majority`, {
@@ -20,7 +19,7 @@ mongoose_1.default
 })
     .then(() => {
     console.log("Connected to MongoDB!");
-    (0, seeder_1.default)();
+    // seedDB();
 })
     .catch((err) => {
     console.log(`An Error Occured! ${err}`);
